@@ -1,0 +1,108 @@
+﻿@model TraineeTracker.App.Models.ViewModels.CreateTrackerVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tracker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDoingText" class="control-label"></label>
+                <textarea asp-for="StartDoingText" class="form-control rounded-0" rows="10"></textarea>
+                <span asp-validation-for="StartDoingText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StopDoingText" class="control-label"></label>
+                <textarea asp-for="StopDoingText" class="form-control rounded-0" rows="10"></textarea>
+                <span asp-validation-for="StopDoingText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContinueDoingText" class="control-label"></label>
+                <textarea asp-for="ContinueDoingText" class="form-control rounded-0" rows="10"></textarea>
+                <span asp-validation-for="ContinueDoingText" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsReviewed" /> @Html.DisplayNameFor(model => model.IsReviewed)
+                </label>
+            </div>
+            @*Create a down menu to choose from, with "Partially Selected" as default*@
+            <div class="form-group">
+                <label asp-for="TechnicalSkill" class="control-label"></label>
+                @{
+                    List<SelectListItem> techSkills = new List<SelectListItem>();
+                    techSkills.Add(new SelectListItem
+                    {
+                        Text = "Skilled",
+                        Value = "Skilled"
+                    });
+                    techSkills.Add(new SelectListItem
+                    {
+                        Text = "Partially Skilled",
+                        Value = "Partially Skilled",
+                        //Selected = true
+                    });
+                    techSkills.Add(new SelectListItem
+                    {
+                        Text = "Low Skilled",
+                        Value = "Low Skilled"
+                    });
+                    techSkills.Add(new SelectListItem
+                    {
+                        Text = "Unskilled",
+                        Value = "Unskilled"
+                    });
+                }
+                @Html.DropDownList("TechnicalSkill", techSkills, new { @class = "form-control" })
+                <span asp-validation-for="TechnicalSkill" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpartanSkill" class="control-label"></label>
+                @{
+                    List<SelectListItem> spartanSkills = new List<SelectListItem>();
+                    spartanSkills.Add(new SelectListItem
+                    {
+                        Text = "Skilled",
+                        Value = "Skilled"
+                    });
+                    spartanSkills.Add(new SelectListItem
+                    {
+                        Text = "Partially Skilled",
+                        Value = "Partially Skilled",
+                        //Selected = true
+                    });
+                    spartanSkills.Add(new SelectListItem
+                    {
+                        Text = "Low Skilled",
+                        Value = "Low Skilled"
+                    });
+                    spartanSkills.Add(new SelectListItem
+                    {
+                        Text = "Unskilled",
+                        Value = "Unskilled"
+                    });
+                }
+                @Html.DropDownList("SpartanSkill", spartanSkills, new { @class = "form-control" })
+                <span asp-validation-for="SpartanSkill" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

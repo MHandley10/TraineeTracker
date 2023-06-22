@@ -1,0 +1,116 @@
+﻿@model TraineeTracker.App.Models.ViewModels.EditTrackerVM
+
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tracker</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<input type="hidden" asp-for="PercentGrade" />
+			<input type="hidden" asp-for="IsReviewed" />
+			<div class="form-group">
+				<label asp-for="Title" class="control-label"></label>
+				<select asp-for="Title" name="Title" class="form-select">
+					<option value="Week 1">Week 1</option>
+					<option value="Week 2">Week 2</option>
+					<option value="Week 3">Week 3</option>
+					<option value="Week 4">Week 4</option>
+					<option value="Week 5">Week 5</option>
+					<option value="Week 6">Week 6</option>
+					<option value="Week 7">Week 7</option>
+					<option value="Week 8">Week 8</option>
+				</select>
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StartDoingText" class="control-label"></label>
+				<textarea maxlength="499" asp-for="StartDoingText" class="form-control rounded-0" rows="10"></textarea>
+				<span asp-validation-for="StartDoingText" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StopDoingText" class="control-label"></label>
+				<textarea maxlength="499" asp-for="StopDoingText" class="form-control rounded-0" rows="10"></textarea>
+				<span asp-validation-for="StopDoingText" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ContinueDoingText" class="control-label"></label>
+				<textarea maxlength="499" asp-for="ContinueDoingText" class="form-control rounded-0" rows="10"></textarea>
+				<span asp-validation-for="ContinueDoingText" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="TechnicalSkill" class="control-label"></label>
+				@{
+					List<SelectListItem> techSkills = new List<SelectListItem>();
+					techSkills.Add(new SelectListItem
+					{
+						Text = "Skilled",
+						Value = "Skilled"
+					});
+						techSkills.Add(new SelectListItem
+					{
+						Text = "Partially Skilled",
+						Value = "Partially Skilled",
+					});
+						techSkills.Add(new SelectListItem
+					{
+						Text = "Low Skilled",
+						Value = "Low Skilled"
+					});
+						techSkills.Add(new SelectListItem
+					{
+						Text = "Unskilled",
+						Value = "Unskilled"
+					});
+				}
+				@Html.DropDownList("TechnicalSkill", techSkills, new { @class = "form-control" })
+				<span asp-validation-for="TechnicalSkill" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SpartanSkill" class="control-label"></label>
+				@{
+					List<SelectListItem> spartanSkills = new List<SelectListItem>();
+					spartanSkills.Add(new SelectListItem
+					{
+						Text = "Skilled",
+						Value = "Skilled"
+					});
+						spartanSkills.Add(new SelectListItem
+					{
+						Text = "Partially Skilled",
+						Value = "Partially Skilled",
+					});
+						spartanSkills.Add(new SelectListItem
+					{
+						Text = "Low Skilled",
+						Value = "Low Skilled"
+					});
+						spartanSkills.Add(new SelectListItem
+					{
+						Text = "Unskilled",
+						Value = "Unskilled"
+					});
+				}
+				@Html.DropDownList("SpartanSkill", spartanSkills, new { @class = "form-control" })
+				<span asp-validation-for="SpartanSkill" class="text-danger"></span>
+			</div>
+			<br>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+			<br>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

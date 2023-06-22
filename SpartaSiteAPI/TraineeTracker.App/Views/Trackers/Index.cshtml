@@ -1,0 +1,121 @@
+﻿@model IEnumerable<TraineeTracker.App.Models.ViewModels.TrackerVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Spartan - Overview</h1>
+
+@{
+    if (this.User.IsInRole("Trainee"))
+    {
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    }
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            @{
+                if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                {
+                    <th>
+                        User
+                    </th>
+                }
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spartan.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpartanSkill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechnicalSkill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PercentGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReviewed)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @{
+                if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Spartan.UserName)
+                    </td>
+                }
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spartan.Course)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpartanSkill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TechnicalSkill)
+            </td>
+            <td>
+                <form asp-action="UpdateTrackerGrade" asp-route-id="@item.Id">
+                    @{
+                        if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                        {
+                            <input name="grade" value="@Html.DisplayFor(modelItem => item.PercentGrade)"></input>
+                        }
+                        else
+                        {
+                            @Html.Label("PercentGrade", (item.PercentGrade.ToString()), new { @disabled = "disabled" })
+                        }
+                    }
+                </form>
+            </td>
+            <td>
+                <form asp-action="UpdateTrackerReviewed" asp-route-id="@item.Id">
+                        @{
+                            if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                            {
+                                @Html.CheckBox("IsReviewed", item.IsReviewed, new {onChange="this.form.submit()"})
+                            }
+                            else
+                            {
+                                @Html.CheckBox("IsReviewed", item.IsReviewed, new { @disabled = "disabled" })
+                            }
+                        }
+                </form>
+            </td>
+            <td class="btn-group-vertical">
+                    @{
+                        if (this.User.IsInRole("Trainee"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        }
+                        if (this.User.IsInRole("Trainee") || this.User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-danger">
+                                @using (Html.BeginForm("Delete", "Trackers", new { id = item.Id }))
+                                {
+                                    <input type="submit" class="bg-transparent border-0" value="Delete" onclick="return confirm('Are you sure you wish to delete the entry: @item.Title?')" />
+                                }
+                            </a>
+                        }
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

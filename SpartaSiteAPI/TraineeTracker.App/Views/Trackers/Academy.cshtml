@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TraineeTracker.App.Models.ViewModels.SpartanDTO>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<form asp-controller="Trackers" asp-action="Academy" method="get">
+    <p>
+        <label for="filter">Filter by: </label>
+        <input type="text" id="filter" name="filter" />
+        <button type="submit">Filter</button>
+    </p>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            @{
+                if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                {
+                    <th>
+                        User
+                    </th>
+                }
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Stream)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               @{
+                    if (this.User.IsInRole("Trainer") || this.User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="nav-link" asp-area="" asp-action="Index" asp-route-userName="@item.UserName">@Html.DisplayFor(modelitem => item.UserName)</a>
+                        </td>
+                    }
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stream)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

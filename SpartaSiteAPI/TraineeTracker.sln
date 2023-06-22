@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraineeTracker.App", "TraineeTracker.App\TraineeTracker.App.csproj", "{2026EC92-94C2-454F-9E4E-BCEA2BFA8022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraineeTrackerTests", "TraineeTrackerTests\TraineeTrackerTests.csproj", "{F5E50276-418F-438A-8741-0B136D524A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2026EC92-94C2-454F-9E4E-BCEA2BFA8022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2026EC92-94C2-454F-9E4E-BCEA2BFA8022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2026EC92-94C2-454F-9E4E-BCEA2BFA8022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2026EC92-94C2-454F-9E4E-BCEA2BFA8022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E50276-418F-438A-8741-0B136D524A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E50276-418F-438A-8741-0B136D524A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E50276-418F-438A-8741-0B136D524A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E50276-418F-438A-8741-0B136D524A34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6911C24-88C4-4251-A889-CD1A1AD962AA}
+	EndGlobalSection
+EndGlobal

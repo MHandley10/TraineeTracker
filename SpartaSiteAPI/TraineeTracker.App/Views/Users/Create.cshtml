@@ -1,0 +1,78 @@
+﻿@model TraineeTracker.App.Models.Spartan
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tracker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <input asp-for="Course" class="form-control" />
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                @{
+                    List<SelectListItem> roles = new List<SelectListItem>();
+                    roles.Add(new SelectListItem
+            {
+                Text = "Trainer",
+                Value = "Trainer"
+            });
+                    roles.Add(new SelectListItem
+            {
+                Text = "Admin",
+                Value = "Admin",
+                //Selected = true
+            });
+                    roles.Add(new SelectListItem
+            {
+                Text = "Trainee",
+                Value = "Trainee"
+            });
+
+                }
+                @Html.DropDownList("Role", roles, new { @class = "form-control" })
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stream" class="control-label"></label>
+                <input asp-for="Stream" class="form-control" />
+                <span asp-validation-for="Stream" class="text-danger"></span>
+            </div>
+            <div>
+                <label class="control-label">Password</label>
+                <input type="password" id="p" name="p" class="form-control" />
+            </div>
+
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
