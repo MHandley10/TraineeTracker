@@ -83,25 +83,24 @@ Entity Framework Documentation
 
 Stack Overflow community for providing answers to various questions.
 
-Thanks to Peter and Nish for teaching, supporting and guiding throughout the lessons and project
-
 ## Credit
-This project was developed by Tech211 Team 2.
 Thank you for your collective efforts in producing this application.
 
-Thank you Patrick for your work in implementing the service layer and IService, working on the login/register functionality and helping to make the isReviewed functionality work correctly.
+Thank you Patrick (FuzzyLogician27) for your work in implementing the service layer and IService, working on the login/register functionality and helping to make the isReviewed functionality work correctly.
 
-Thank you Jacob for your work implementing the controller, your research on cshtml files for the create function and for your work ensuring the controller is well tested using Moq.
+Thank you Jacob (JSB-22) for your work implementing the controller, your research on cshtml files for the create function and for your work ensuring the controller is well tested using Moq. Also adding an API controller.
 
-Thank you Vlad for your work creating the View Models, your implementation of access roles and your work on the implementation of the controller.
+Thank you Vlad (VladStoyanovADP) for your work creating the View Models, your implementation of access roles and your work on the implementation of the controller.
 
-Thank you Andrew for your work implementing the SeedData class, implementing the controller, your help in ensuring the controller was well tested and for your work on the login/register functionality.
+Thank you Andrew (andrew2984) for your work implementing the SeedData class, implementing the controller, your help in ensuring the controller was well tested and for your work on the login/register functionality.
 
-Thank you Talal for your research on cshtml files and for implementing the dropdown function in create. Also for your work implementing the controller, and for implementing the filter function.
+Thank you Talal (aloopuri) for your research on cshtml files and for implementing the dropdown function in create. Also for your work implementing the controller, and for implementing the filter function.
 
-Thank you Ahmed for your work on the service layer, and for your work on the login/register functionality. Also for your work in reviewing the code and helping to debug.
+Thank you Ahmed (AhmedBader97) for your work on the service layer, and for your work on the login/register functionality. Also for your work in reviewing the code and helping to debug.
 
-Thank you Danielle for your work on the SeedData class, your help on implementing the service layer and your help in ensuring the controller is tested.
+Thank you Danielle (EllNixole) for your work on the SeedData class, your help on implementing the service layer and your help in ensuring the controller is tested.
+
+Thank you Nooreen (HumidTurtle), Danyal (Danymcdan0) and Matthew (MHandley10/Unloosedcascade) for adding more to the seed data, adding profiles, adding an academy view and filters for this view.
 
 Thank you to all the devs for the initial setup of the project, the styling of the application and for helping to solve exceptions.
 
